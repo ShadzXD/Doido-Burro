@@ -36,6 +36,7 @@ class SaveVariables
 	public var hitsoundVolume:Float = 0.4;
 	public var flashingLights:String = "ON";
 	public var developerMode:Bool = false;
+	public var strumBGAlpha:Float = 0;
 
 	// graphics
 	public var fps:Int = 60;

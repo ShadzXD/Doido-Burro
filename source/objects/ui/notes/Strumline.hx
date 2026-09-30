@@ -8,6 +8,7 @@ import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
 import objects.ui.notes.Splash.Cover;
 import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
 
 class Strumline extends FlxGroup
 {
@@ -60,10 +61,21 @@ class Strumline extends FlxGroup
 			strum.zIndex = 0;
 			strums.push(strum);
 			add(strum);
+
 		}
 
 		recalculateX();
 		recalculateY();
+		for(strum in strums)
+		{
+			var strumBg:FlxSprite = new FlxSprite().makeGraphic(112, FlxG.height, FlxColor.BLACK);
+			strumBg.alpha = Save.data.strumBGAlpha;
+			strumBg.visible = strum.visible;
+			strumBg.zIndex = -10;
+			add(strumBg);
+		}
+		sort(ZIndex.sort);
+
 	}
 
 	public function addNote(noteData:NoteData)
@@ -130,6 +142,7 @@ class Strumline extends FlxGroup
 
 	public function updateNotes(curStepFloat:Float)
 	{
+		
 		var downMult:Int = (downscroll ? -1 : 1);
 
 		for (note in notes)

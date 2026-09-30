@@ -192,6 +192,19 @@ class OptionsSubState extends MusicBeatSubState
 					}
 				},
 				{
+					name: "Strumline Background",
+					get: () -> Save.data.strumBGAlpha,
+					set: (f:Float) -> Save.data.strumBGAlpha = f,
+					desc: (f:Float) ->
+					{
+							return "";
+					},
+					step: 0.1,
+					limits: [0.0, 1.0],
+					display: (f:Float) -> return '${Math.floor(f * 100)}%',
+				
+				},
+				{
 					name: "Note Quantization",
 					get: () -> Save.data.quantNotes,
 					set: (b:Bool) -> Save.data.quantNotes = b,
